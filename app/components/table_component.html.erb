@@ -1,0 +1,59 @@
+<div class="mt-8 flow-root min-w-full">
+  <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <% if data.present? %>
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 min-w-full">
+        <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg overflow-x-auto w-[1100px]">
+          <table class="min-w-full divide-y divide-gray-300">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Entity</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Ad Group name</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Campaign name</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Keyword text</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Match type</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Impressions</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Clicks</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Click-through Rate</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Spend</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Sales</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Orders</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Units</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Conversion Rate</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">ACOS</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">CPC</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">ROAS</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              <% data.each do |row| %>
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= row[:entity] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:ad_group_name] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:campaign_name] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:keyword_text] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:match_type] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:impressions] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:clicks] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:click_through_rate] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:spend] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:sales] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:orders] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:units] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:conversion_rate] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:acos] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:cpc] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= row[:roas] %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% else %>
+      <div class="mt-12 text-center">
+        <div class="flex justify-center items-center"><%= image_tag 'empty-block', alt: 'empty-block', class: 'h-full' %></div>
+        <div class="text-xs mt-6">Filtered and formatted data will be listed here...!</div>
+      </div>
+    <% end %>
+  </div>
+</div>

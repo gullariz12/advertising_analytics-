@@ -1,0 +1,24 @@
+<main class="py-10 lg:pl-72 min-w-full">
+  <div class="px-4 sm:px-6 lg:px-8 mx-auto">
+
+    <div class="px-4 sm:px-6 lg:px-8 min-w-full">
+      <div class="sm:flex sm:items-center min-w-[1100px]">
+        <div class="sm:flex-auto">
+          <h1 class="text-base font-semibold leading-6 text-gray-900">Advertisment Analytics</h1>
+          <p class="mt-2 text-sm text-gray-700">A detailed analytics of your advertiments.</p>
+        </div>
+        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none" data-controller='uploads' data-uploads-url-value='<%= import_campagin_path %>'>
+          <%= file_field_tag :file, class: "block rounded-md bg-gray-800 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900",
+                             accept: '.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', data: { action: 'change->uploads#attach' } %>
+        </div>
+      </div>
+
+      <hr />
+
+      <%= tag.turbo_frame id: 'keywords_listing' do %>
+        <%= render TableComponent.new(data: @campagin_data) %>
+      <% end %>
+    </div>
+
+  </div>
+</main>

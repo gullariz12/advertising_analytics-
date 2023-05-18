@@ -1,0 +1,3 @@
+<%= turbo_stream.update 'keywords_listing' do %>
+  <%= render TableComponent.new(data: @campaign_data) %>
+<% end %>
